@@ -10,7 +10,8 @@
 		{"pall", pall},   \
 		{"pint", pint},    \
 		{"pop", pop},	   \
-		{ NULL, NULL }                     \
+		{"swap", swap},    \
+		{ NULL, NULL }      \
 	}
 
 /**
