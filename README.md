@@ -1,0 +1,1 @@
+this is to create a monty 0.98 language by using stacks and queues ,LIFO,FIFO
