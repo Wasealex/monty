@@ -15,6 +15,7 @@
 		{"nop", nop},     \
 		{"sub", _sub},     \
 		{"div", _div},     \
+		{"mul", _mul},       \
 		{ NULL, NULL }      \
 	}
 
