@@ -13,6 +13,7 @@
 		{"swap", swap},    \
 		{"add", _add},    \
 		{"nop", nop},     \
+		{"sub", _sub},     \
 		{ NULL, NULL }      \
 	}
 
