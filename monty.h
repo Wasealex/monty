@@ -9,18 +9,6 @@
 		{"push", push},       \
 		{"pall", pall},   \
 		{"pint", pint},   \
-		{"pop", pop},     \
-		{"swap", swap},   \
-		{"nop", nop},     \
-		{"div", _div},    \
-		{"mul", _mul},    \
-		{"add", _add},    \
-		{"sub", _sub},    \
-		{"mod", mod},     \
-		{"pchar", pchar}, \
-		{"pstr", pstr},   \
-		{"rotl", rotl},   \
-		{"rotr", rotr},   \
 		{                     \
 			NULL, NULL      \
 		}                     \
