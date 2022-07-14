@@ -26,3 +26,16 @@ void _add(stack_t **stack, unsigned int line_cnt)
 	(*stack)->n = result;
 
 }
+/**
+ *nop -  does nothing
+ *@stack: doesnt matter
+ *@line_cnt : for nothing
+ *
+ *Return: NOTHING
+ */
+void nop(stack_t **stack, unsigned int line_cnt)
+{
+	(void) stack;
+	(void) line_cnt;
+
+}
