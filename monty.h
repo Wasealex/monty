@@ -5,13 +5,12 @@
 #include <stdlib.h>
 
 #define INSTRUCTIONS              \
-	{                           \
-		{"push", push},       \
+	{                         \
+		{"push", push},   \
 		{"pall", pall},   \
-		{"pint", pint},   \
-		{                     \
-			NULL, NULL      \
-		}                     \
+		{"pint", pint},    \
+		{"pop", pop},	   \
+		{ NULL, NULL }                     \
 	}
 
 /**
