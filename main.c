@@ -11,6 +11,8 @@ int main(int ag, char **av)
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
+	char *full_str;
+	int line_number = 0;
 
 	if (ag != 2)
 	{
@@ -21,8 +23,12 @@ int main(int ag, char **av)
 	file = fopen(av[1], "r");
 	while ((read = getline(&line, &len, file)) != -1)
 	{
-		printf("%s", line);
+		full_str =  strstrip(line);
+		printf("%s", full_str);
+		line_number++;
+		free(full_str);
 	}
+	printf("total line number is %d\n", line_number);
 	fclose(file);
 	free(line);
 	return (0);

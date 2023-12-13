@@ -35,4 +35,5 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /*------------------function prototypes--------------------------*/
+char *strstrip(const char *str);
 #endif
