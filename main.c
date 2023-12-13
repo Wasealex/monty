@@ -8,7 +8,7 @@
 int main(int ag, char **av)
 {
 	FILE *file;
-	char *line;
+	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 
@@ -24,5 +24,6 @@ int main(int ag, char **av)
 		printf("%s", line);
 	}
 	fclose(file);
+	free(line);
 	return (0);
 }
