@@ -41,5 +41,5 @@ void free_stack(stack_t *stack);
 int pint(stack_t **stack, __attribute__((unused))unsigned int line_number);
 int pop(stack_t **stack, __attribute__((unused))unsigned int line_number);
 int swap(stack_t **stack, __attribute__((unused))unsigned int line_number);
-size_t stack_len(const stack_t *stack);
+int add(stack_t **stack, __attribute__((unused))unsigned int line_number);
 #endif

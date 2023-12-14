@@ -97,6 +97,18 @@ int main(int ag, char **av)
 				exit(EXIT_FAILURE);
 			}
 		}
+		else if (strncmp(full_str, "add", 3) == 0)
+		{
+			res = add(&stack, line_number);
+			if (res == 1)
+			{
+				fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+				free(full_str);
+				fclose(file);
+				free_stack(stack);
+				exit(EXIT_FAILURE);
+			}
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, full_str);

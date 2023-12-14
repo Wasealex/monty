@@ -11,7 +11,6 @@ int swap(stack_t **stack, __attribute__((unused))unsigned int line_number)
 
 	if (!stack || !*stack || !((*stack)->next))
 	{
-		free_stack(*stack);
 		return (1);
 	}
 	temp = *stack;
