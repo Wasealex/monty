@@ -58,6 +58,10 @@ int main(int ag, char **av)
 		{
 			pall(&stack, line_number);
 		}
+		else if (strncmp(full_str, "pint", 4) == 0)
+		{
+			pint(&stack, line_number);
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, full_str);
