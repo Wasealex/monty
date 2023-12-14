@@ -12,6 +12,7 @@ int main(int ag, char **av)
 	char line[1024];
 	char *full_str;
 	stack_t *stack = NULL;
+	stack_t *check;
 	unsigned int line_number = 0;
 	int n;
 	if (ag != 2)
