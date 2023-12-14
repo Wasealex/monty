@@ -24,16 +24,15 @@ void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
  *pint - prints all the elements of in reverse a 'stack_t' list
  *@stack: head pointer pointing to the first node
  *@line_number: line number of instruction
- *Return: if failed to print
+ *Return: 1 if stack is empty
  */
-void pint(stack_t **stack, __attribute__((unused))unsigned int line_number)
+int pint(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *current = *stack;
 
 	if (*stack == NULL)
 	{
-		printf("\n");
-		exit(EXIT_FAILURE);
+		return (1);
 	}
 	else
 	{
@@ -43,4 +42,5 @@ void pint(stack_t **stack, __attribute__((unused))unsigned int line_number)
 			current = current->prev;
 		}
 	}
+	return (0);
 }

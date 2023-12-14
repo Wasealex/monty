@@ -13,7 +13,7 @@ int main(int ag, char **av)
 	stack_t *stack = NULL;
 	stack_t *check;
 	unsigned int line_number = 0;
-	int n;
+	int n, res;
 	if (ag != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -50,6 +50,9 @@ int main(int ag, char **av)
 				if (check == NULL)
 				{
 					fprintf(stderr, "Error: malloc failed\n");
+					free(full_str);
+					fclose(file);
+					free_stack(stack);
 					exit(EXIT_FAILURE);
 				}
 			}
@@ -60,7 +63,15 @@ int main(int ag, char **av)
 		}
 		else if (strncmp(full_str, "pint", 4) == 0)
 		{
-			pint(&stack, line_number);
+			res = pint(&stack, line_number);
+			if (res == 1)
+			{
+				fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+				free(full_str);
+				fclose(file);
+				free_stack(stack);
+				exit(EXIT_FAILURE);
+			}
 		}
 		else
 		{
