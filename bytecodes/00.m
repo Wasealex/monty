@@ -1,8 +1,4 @@
-   push 12
+   push 1
+ush 2
 push 3
-push -2
 pall
-push 0
-pall
-push 2
-   pall

@@ -16,13 +16,13 @@ int main(int ag, char **av)
 	int n;
 	if (ag != 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		return (EXIT_FAILURE);
 	}
 	while (fgets(line, sizeof(line), file) != NULL)
