@@ -66,6 +66,18 @@ int main(int ag, char **av)
 			res = pint(&stack, line_number);
 			if (res == 1)
 			{
+				fprintf(stderr, "L%d: can't pint an empty stack\n", line_number);
+				free(full_str);
+				fclose(file);
+				free_stack(stack);
+				exit(EXIT_FAILURE);
+			}
+		}
+		else if (strncmp(full_str, "pop", 3) == 0)
+		{
+			res = pop(&stack, line_number);
+			if (res == 1)
+			{
 				fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 				free(full_str);
 				fclose(file);
