@@ -13,7 +13,11 @@ int main(int ag, char **av)
 	char *full_str;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	int n;
+	int n, flag = 0;
+	size_t i;
+	instruction_t instructions[] = {
+		{"pall", pall}
+	};
 
 	if (ag != 2)
 	{
@@ -30,6 +34,10 @@ int main(int ag, char **av)
 	{
 		line_number++;
 		full_str = strstrip(line);
+		if (full_str[0] == '\0' || full_str[0] == '#')
+		{
+			continue;
+		}
 		if (strncmp(full_str, "push", 4) == 0)
 		{
 			n = atoi(full_str + 5);
@@ -48,18 +56,26 @@ int main(int ag, char **av)
 			else
 				push(&stack, line_number, n);
 		}
-		else if (strncmp(full_str, "pall", 4) == 0)
-		{
-			pall(&stack, line_number);
-		}
 		else
 		{
-			fprintf(stderr,"L%d: unknown instruction %s\n",
-				line_number, full_str);
-			free(full_str);
-			free_stack(stack);
-			fclose(file);
-			exit(EXIT_FAILURE);
+			for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
+			{
+				if (strncmp(full_str, instructions[i].opcode, 4) == 0)
+				{
+					instructions[i].f(&stack, line_number);
+					flag = 1;
+					break;
+				}
+			}
+			if (!flag)
+			{
+				fprintf(stderr, "L%d: unknown instruction %s",
+					line_number, full_str);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
 		}
 		free(full_str);
 	}
