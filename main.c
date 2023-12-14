@@ -33,7 +33,14 @@ int main(int ag, char **av)
 		if (strncmp(full_str, "push", 4) == 0)
 		{
 			n = atoi(full_str + 4);
-			push(&stack, line_number, n);
+			if (n == 0)
+			{
+				fprintf(stderr,	"L%d: usage: push integer",
+					line_number);
+				exit(EXIT_FAILURE);
+			}
+			else
+				push(&stack, line_number, n);
 		}
 		else if (strncmp(full_str, "pall", 4) == 0)
 		{
@@ -41,7 +48,9 @@ int main(int ag, char **av)
 		}
 		else
 			printf("%s", full_str);
-        }
+		free(full_str);
+	}
 	fclose(file);
+	free_stack(stack);
 	return (0);
 }

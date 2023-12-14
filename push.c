@@ -6,7 +6,8 @@
  *@n: data to be inserted
  *Return: the address of new element or NULL if it failed
  */
-stack_t *push(stack_t **stack, __attribute__((unused))unsigned int line_number, int n)
+stack_t *push(stack_t **stack,
+	      __attribute__((unused))unsigned int line_number, int n)
 {
 	stack_t *new_node = NULL;
 
