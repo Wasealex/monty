@@ -30,7 +30,8 @@ char *strstrip(const char *str)
 	trimmed_str = malloc((trimmed_length + 1) * sizeof(char));
 	if (trimmed_str == NULL)
 	{
-		return (NULL);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 	/* Copy the trimmed string into the newly allocated buffer */
 	strncpy(trimmed_str, str + start, trimmed_length);

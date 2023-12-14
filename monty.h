@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <stddef.h>
 /*-----------------------doubly linked list for stack (or queue)------------*/
 /**
  *struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,4 +35,6 @@ typedef struct instruction_s
 } instruction_t;
 /*------------------function prototypes--------------------------*/
 char *strstrip(const char *str);
+stack_t *push(stack_t **stack, unsigned int line_number, int n);
+void pall(stack_t **stack, unsigned int line_number);
 #endif
