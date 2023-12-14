@@ -109,6 +109,10 @@ int main(int ag, char **av)
 				exit(EXIT_FAILURE);
 			}
 		}
+		else if (strncmp(full_str, "nop", 3) == 0 || full_str[0] == '#')
+		{
+			nop(&stack, line_number);
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, full_str);

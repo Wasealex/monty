@@ -42,4 +42,5 @@ int pint(stack_t **stack, __attribute__((unused))unsigned int line_number);
 int pop(stack_t **stack, __attribute__((unused))unsigned int line_number);
 int swap(stack_t **stack, __attribute__((unused))unsigned int line_number);
 int add(stack_t **stack, __attribute__((unused))unsigned int line_number);
+void nop(stack_t **stack, __attribute__((unused))unsigned int line_number);
 #endif
