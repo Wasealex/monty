@@ -32,12 +32,18 @@ int main(int ag, char **av)
 		full_str = strstrip(line);
 		if (strncmp(full_str, "push", 4) == 0)
 		{
-			n = atoi(full_str + 4);
-			if (n == 0)
+			n = atoi(full_str + 5);
+			if (n == 0 && full_str[5] != '0')
 			{
-				fprintf(stderr,	"L%d: usage: push integer",
-					line_number);
-				exit(EXIT_FAILURE);
+				if (strcmp(full_str + 5, "0") != 0)
+				{
+					fprintf(stderr,	"L%d: usage: push integer\n",
+						line_number);
+					free(stack);
+					free(full_str);
+					fclose(file);
+					exit(EXIT_FAILURE);
+				}
 			}
 			else
 				push(&stack, line_number, n);
@@ -48,7 +54,7 @@ int main(int ag, char **av)
 		}
 		else
 		{
-			fprintf(stderr,"L%d: unknown instruction %s",
+			fprintf(stderr,"L%d: unknown instruction %s\n",
 				line_number, full_str);
 			free(full_str);
 			free_stack(stack);
