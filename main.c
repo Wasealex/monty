@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <stdio.h>
 /**
  *main - entry point
  *@ag: no of arguments
@@ -50,7 +49,7 @@ int main(int ag, char **av)
 				check = push(&stack, line_number, n);
 				if (check == NULL)
 				{
-					fprintf(stderr, "Error: malloc failed");
+					fprintf(stderr, "Error: malloc failed\n");
 					exit(EXIT_FAILURE);
 				}
 			}
