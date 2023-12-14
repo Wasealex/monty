@@ -47,7 +47,14 @@ int main(int ag, char **av)
 			pall(&stack, line_number);
 		}
 		else
-			printf("%s", full_str);
+		{
+			fprintf(stderr,"L%d: unknown instruction %s",
+				line_number, full_str);
+			free(full_str);
+			free_stack(stack);
+			fclose(file);
+			exit(EXIT_FAILURE);
+		}
 		free(full_str);
 	}
 	fclose(file);
