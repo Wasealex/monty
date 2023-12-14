@@ -45,7 +45,14 @@ int main(int ag, char **av)
 				}
 			}
 			else
-				push(&stack, line_number, n);
+			{
+				check = push(&stack, line_number, n);
+				if (check == NULL)
+				{
+					fprintf(stderr, "Error: malloc failed");
+					exit(EXIT_FAILURE);
+				}
+			}
 		}
 		else if (strncmp(full_str, "pall", 4) == 0)
 		{
