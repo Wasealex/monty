@@ -53,7 +53,7 @@ int main(int ag, char **av)
 		}
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s", line_number, full_str);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, full_str);
 			free(full_str);
 			fclose(file);
 			free_stack(stack);
