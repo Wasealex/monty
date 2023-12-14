@@ -9,9 +9,7 @@
 int main(int ag, char **av)
 {
 	FILE *file;
-	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
+	char line[1024];
 	char *full_str;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
@@ -19,16 +17,16 @@ int main(int ag, char **av)
 
 	if (ag != 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		return (EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, file)) != -1)
+	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
 		full_str = strstrip(line);
@@ -45,6 +43,5 @@ int main(int ag, char **av)
 			printf("%s", full_str);
         }
 	fclose(file);
-	free(line);
 	return (0);
 }
