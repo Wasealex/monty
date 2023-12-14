@@ -44,7 +44,6 @@ int main(int ag, char **av)
 		else
 			printf("%s", full_str);
         }
-	printf("total line number is %d\n", line_number);
 	fclose(file);
 	free(line);
 	return (0);
