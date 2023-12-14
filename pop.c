@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  *pop - remove at end
- *stack: head pointer
- *line_number: the line where the instruction is found
+ *@stack: head pointer
+ *@line_number: the line where the instruction is found
  *Return: 1 if the stack is empty
  */
 int pop(stack_t **stack, __attribute__((unused))unsigned int line_number)
