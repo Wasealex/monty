@@ -9,7 +9,7 @@ int main(int ag, char **av)
 {
 	FILE *file;
 	char line[1024];
-	char *full_str;
+	char *full_str, *opcode;
 	stack_t *stack = NULL;
 	stack_t *check;
 	unsigned int line_number = 0;
@@ -28,8 +28,10 @@ int main(int ag, char **av)
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
+		if (line[0] == '\n')
+			continue;
 		full_str = strstrip(line);
-		if (strncmp(full_str, "push", 4) == 0)
+		if (strncmp(full_str, "push ", 5) == 0)
 		{
 			n = atoi(full_str + 5);
 			if (n == 0 && full_str[5] != '0')
@@ -57,9 +59,10 @@ int main(int ag, char **av)
 				}
 			}
 		}
-		else if (strncmp(full_str, "pall", 4) == 0)
+		else if (strncmp(full_str, "pall ", 4) == 0)
 		{
 			pall(&stack, line_number);
+			continue;
 		}
 		else if (strncmp(full_str, "pint", 4) == 0)
 		{
@@ -115,7 +118,8 @@ int main(int ag, char **av)
 		}
 		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, full_str);
+			opcode = strtok(full_str, " ");
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			free(full_str);
 			fclose(file);
 			free_stack(stack);
