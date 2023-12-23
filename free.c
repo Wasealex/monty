@@ -1,16 +1,18 @@
 #include "monty.h"
 /**
- *free_stack - deletes the list after completion
+ *free_stack - deletes the full stack
  *@stack: head pointer
- *return: void
+ *Return: void
  */
 void free_stack(stack_t *stack)
 {
-    stack_t *current = stack;
-    while (current != NULL)
-    {
-        stack_t *next = current->next;
-        free(current);
-        current = next;
-    }
+	stack_t *current = stack;
+	stack_t *next;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 }

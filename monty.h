@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 /*-----------------------doubly linked list for stack (or queue)------------*/
 /**
  *struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,10 +35,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /*-------------------globalvariables----------------------------*/
-
 /*------------------function prototypes--------------------------*/
-void push(stack_t **stack, unsigned int line_number);
-stack_t *create_stack(int n);
-void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, int n);
+void pall(stack_t **stack);
 void free_stack(stack_t *stack);
+char *strstrip(const char *str);
+int isNumeric(char *str);
 #endif
