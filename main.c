@@ -59,7 +59,7 @@ int main(int ac, char **av)
 		}
 		else if (strncmp(full_str, "pall", 4) == 0)
 			pall(&stack);
-		else if (strncmp(full_str, "pint", 4) == 0 && strlen(full_str) == 5)
+		else if (strncmp(full_str, "pint", 4) == 0)
 		{
 			if (stack == NULL)
 			{
@@ -72,7 +72,7 @@ int main(int ac, char **av)
 			else
 				pint(&stack);
 		}
-		else if (strncmp(full_str, "pop", 3) == 0 && strlen(full_str) == 4)
+		else if (strncmp(full_str, "pop", 3) == 0)
 		{
 			if (stack == NULL)
 			{
