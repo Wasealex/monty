@@ -33,14 +33,11 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/*-------------------globalvariables----------------------------*/
+
 /*------------------function prototypes--------------------------*/
-char *strstrip(const char *str);
-stack_t *push(stack_t **stack, unsigned int line_number, int n);
+void push(stack_t **stack, unsigned int line_number);
+stack_t *create_stack(int n);
 void pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
-int pint(stack_t **stack, __attribute__((unused))unsigned int line_number);
-int pop(stack_t **stack, __attribute__((unused))unsigned int line_number);
-int swap(stack_t **stack, __attribute__((unused))unsigned int line_number);
-int add(stack_t **stack, __attribute__((unused))unsigned int line_number);
-void nop(stack_t **stack, __attribute__((unused))unsigned int line_number);
 #endif
