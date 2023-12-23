@@ -61,6 +61,8 @@ int main(int ac, char **av)
 			pall(&stack);
 		else if (strncmp(full_str, "pint", 4) == 0)
 			pint(&stack);
+		else if (strncmp(full_str, "pop", 3) == 0)
+			pop(&stack);
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, full_str);

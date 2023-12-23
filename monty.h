@@ -39,6 +39,7 @@ typedef struct instruction_s
 void push(stack_t **stack, int n);
 void pall(stack_t **stack);
 void pint(stack_t **stack);
+void pop(stack_t **stack);
 void free_stack(stack_t *stack);
 char *strstrip(const char *str);
 int isNumeric(char *str);
