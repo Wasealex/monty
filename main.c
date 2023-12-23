@@ -57,7 +57,7 @@ int main(int ac, char **av)
 			else
 				push(&stack, num);
 		}
-		else if (strcmp(full_str, "pall") == 0)
+		else if (strncmp(full_str, "pall", 4) == 0)
 			pall(&stack);
 		else if (strncmp(full_str, "pint", 4) == 0)
 			pint(&stack);
