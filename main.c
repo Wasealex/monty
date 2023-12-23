@@ -72,7 +72,7 @@ int main(int ac, char **av)
 			else
 				pint(&stack);
 		}
-		else if (strncmp(full_str, "pop", 3) == 0)
+		else if (strncmp(full_str, "pop", 3) == 0 && strlen(full_str) == 4)
 		{
 			if (stack == NULL)
 			{
