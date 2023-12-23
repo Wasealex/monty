@@ -60,9 +60,31 @@ int main(int ac, char **av)
 		else if (strncmp(full_str, "pall", 4) == 0)
 			pall(&stack);
 		else if (strncmp(full_str, "pint", 4) == 0)
-			pint(&stack);
+		{
+			if (stack == NULL)
+			{
+				fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				pint(&stack);
+		}
 		else if (strncmp(full_str, "pop", 3) == 0)
-			pop(&stack);
+		{
+			if (stack == NULL)
+			{
+				fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				pop(&stack);
+		}
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, full_str);
