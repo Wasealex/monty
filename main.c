@@ -57,8 +57,10 @@ int main(int ac, char **av)
 			else
 				push(&stack, num);
 		}
-		else if (strncmp(full_str, "pall", 4) == 0)
+		else if (strcmp(full_str, "pall") == 0)
 			pall(&stack);
+		else if (strncmp(full_str, "pint", 4) == 0)
+			pint(&stack);
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, full_str);
