@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
  *main - entry point for monty
- *
- *Return - 0 if successfull 1 if not
+ *@ac: argument count
+ *@av: argument vector
+ *Return: 0 if successfull 1 if not
  */
 int main(int ac, char **av)
 {
