@@ -111,6 +111,10 @@ int main(int ac, char **av)
 			else
 				add(&stack);
 		}
+		else if (strncmp(full_str, "nop", 3) == 0)
+		{
+				nop(&stack);
+		}
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, full_str);

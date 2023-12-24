@@ -42,6 +42,7 @@ void pint(stack_t **stack);
 void pop(stack_t **stack);
 void swap(stack_t **stack);
 void add(stack_t **stack);
+void nop(stack_t **stack);
 void free_stack(stack_t *stack);
 char *strstrip(const char *str);
 int isNumeric(char *str);
