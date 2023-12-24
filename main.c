@@ -111,9 +111,9 @@ int main(int ac, char **av)
 			else
 				add(&stack);
 		}
-		else if (strncmp(full_str, "nop", 3) == 0)
+		else if (strncmp(full_str, "nop", 3) == 0 || (strncmp(full_str, "#", 1) == 0))
 		{
-				nop(&stack);
+			nop(&stack);
 		}
 		else
 		{
