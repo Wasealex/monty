@@ -85,6 +85,19 @@ int main(int ac, char **av)
 			else
 				pop(&stack);
 		}
+		else if (strncmp(full_str, "swap", 4) == 0)
+		{
+			if (stack == NULL)
+			{
+				fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				swap(&stack);
+		}
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, full_str);
