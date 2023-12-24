@@ -85,7 +85,7 @@ int main(int ac, char **av)
 			else
 				pop(&stack);
 		}
-		else if (strncmp(full_str, "swap", 4))
+		else if (strncmp(full_str, "swap", 4) == 0)
 		{
 			if (stack == NULL || (stack->next) == NULL)
 			{
