@@ -2,7 +2,6 @@
 /**
  *add - adds two members(fisrt two only)
  *@stack: pointer to head
- *@line_number: instruction line
  *Return: 1 if its short
  */
 void add(stack_t **stack)

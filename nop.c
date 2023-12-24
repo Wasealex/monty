@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  *nop - nothing
+ *@stack: head pointer
  *Return: void
  *
  */
