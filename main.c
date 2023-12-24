@@ -85,7 +85,7 @@ int main(int ac, char **av)
 			else
 				pop(&stack);
 		}
-		else if (strncmp(full_str, "swap", 4) == 0)
+		else if (strncmp(full_str, "swap", 4) == 0 && strlen(full_str) == 5)
 		{
 			if (stack == NULL || (stack->next) == NULL)
 			{
@@ -97,6 +97,19 @@ int main(int ac, char **av)
 			}
 			else
 				swap(&stack);
+		}
+		else if (strncmp(full_str, "add", 3) == 0 && strlen(full_str) == 4)
+		{
+			if (stack == NULL || (stack->next) == NULL)
+			{
+				fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				add(&stack);
 		}
 		else
 		{
