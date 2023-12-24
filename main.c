@@ -98,7 +98,7 @@ int main(int ac, char **av)
 			else
 				swap(&stack);
 		}
-		else if (strncmp(full_str, "add", 3) == 0 && strlen(full_str) == 4)
+		else if (strncmp(full_str, "add", 3) == 0)
 		{
 			if (stack == NULL || (stack->next) == NULL)
 			{
