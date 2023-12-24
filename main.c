@@ -87,7 +87,7 @@ int main(int ac, char **av)
 		}
 		else if (strncmp(full_str, "swap", 4) == 0)
 		{
-			if (stack == NULL)
+			if (stack == NULL || (stack->next) == NULL)
 			{
 				fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 				free(full_str);
