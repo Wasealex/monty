@@ -115,7 +115,7 @@ int main(int ac, char **av)
 		{
 			if (stack == NULL || (stack->next) == NULL)
 			{
-				fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+				fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 				free(full_str);
 				free_stack(stack);
 				fclose(file);
