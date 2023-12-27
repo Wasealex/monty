@@ -124,6 +124,27 @@ int main(int ac, char **av)
 			else
 				sub(&stack);
 		}
+		else if (strncmp(full_str, "div", 3) == 0)
+		{
+			if (stack == NULL || (stack->next) == NULL)
+			{
+				fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			if (stack->n == 0)
+			{
+				fprintf(stderr, "L%u: division by zero\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				mdiv(&stack);
+		}
 		else if (strncmp(full_str, "nop", 3) == 0 || (strncmp(full_str, "#", 1) == 0))
 		{
 			nop(&stack);
