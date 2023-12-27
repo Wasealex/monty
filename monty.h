@@ -46,6 +46,7 @@ void nop(stack_t **stack);
 void sub(stack_t **stack);
 void mdiv(stack_t **stack);
 void mmul(stack_t **stack);
+void mmod(stack_t **stack);
 void free_stack(stack_t *stack);
 char *strstrip(const char *str);
 int isNumeric(char *str);
