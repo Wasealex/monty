@@ -111,6 +111,19 @@ int main(int ac, char **av)
 			else
 				add(&stack);
 		}
+		else if (strncmp(full_str, "sub", 3) == 0)
+		{
+			if (stack == NULL || (stack->next) == NULL)
+			{
+				fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+				free(full_str);
+				free_stack(stack);
+				fclose(file);
+				exit(EXIT_FAILURE);
+			}
+			else
+				sub(&stack);
+		}
 		else if (strncmp(full_str, "nop", 3) == 0 || (strncmp(full_str, "#", 1) == 0))
 		{
 			nop(&stack);
